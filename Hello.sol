@@ -1,22 +1,12 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.18;
+pragma solidity 0.8.18;
 
-import "hardhat/console.sol";
+// check gas usage!
 
-contract Hello {
-    string message;
+contract SimpleStorage {
+    uint256 public myNumber;
 
-    function setMessage(string memory newMessage) public {
-        console.log("set message");
-        message = newMessage;        
-    }
-
-    function getMessage() public view returns (string memory message_) {
-        console.log("get message now", msg.sender);
-        return message;
-    }
-
-    function getSender() public view returns (address) {
-        return msg.sender;
+    function store(uint256 _myNumber) public {
+        myNumber = _myNumber;
     }
 }
